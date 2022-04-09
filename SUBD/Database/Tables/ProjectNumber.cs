@@ -19,7 +19,7 @@ namespace Database.Tables
 		public string ProjectNumberName { get; set; }	
 
 		[ForeignKey("ProjectNumberId")]
-		public virtual List<Staff> Staff { get; set; }
+		public virtual List<Staff> Staffs { get; set; }
 
 		public virtual ProjectType ProjectType { get; set; }
 

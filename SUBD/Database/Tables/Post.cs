@@ -18,6 +18,6 @@ namespace Database.Tables
 		public int PostRate { get; set; }
 	
 		[ForeignKey("PostId")]
-		public virtual List<Staff> Staff { get; set; }
+		public virtual List<Staff> Staffs { get; set; }
 	}
 }

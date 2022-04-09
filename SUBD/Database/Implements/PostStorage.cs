@@ -53,14 +53,14 @@ namespace Database.Implements
             }
             element.PostName = model.PostName;  
             element.PostRate = model.PostRate;
-            element.Staff = model.Staff;
+            element.Staffs = model.Staffs;
             context.SaveChanges();
         }
 
         public void Delete(Post model)
         {
             using var context = new CompanyDatabase();
-            Post element = context.Classes.FirstOrDefault(rec => rec.Id == model.Id);
+            Post element = context.Posts.FirstOrDefault(rec => rec.Id == model.Id);
             if (element != null)
             {
                 context.Posts.Remove(element);

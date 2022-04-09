@@ -80,6 +80,7 @@ namespace Database.Implements
             element.ProjectNumber = model.ProjectNumber;
             element.StaffName = model.StaffName;
             element.StaffRate = model.StaffRate;
+            element.Purposes = model.Purposes;
             context.SaveChanges();
         }
 

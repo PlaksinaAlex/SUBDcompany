@@ -12,13 +12,11 @@ namespace Database.Tables
 	public class Purpose
 	{
 		public int Id { get; set; }
-		public int PostId { get; set; }
-		public int ProjectNumberId { get; set; }
+		public int StaffId { get; set; }
 		[Required]
-		public string StaffName { get; set; }
-		public int StaffRate { get; set; }
-		public virtual Post Post { get; set; }
+		public DataType workday { get; set; }
+		public int HoursCount { get; set; }
+		public virtual Staff Staff { get; set; }
 
-		public virtual ProjectNumber ProjectNumber { get; set; }
 	}
 }

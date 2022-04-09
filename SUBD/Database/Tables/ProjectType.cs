@@ -16,7 +16,7 @@ namespace Database.Tables
 
 		public int ProjectTypeRate { get; set; }
 
-		[ForeignKey("ProjectTyperId")]
-		public virtual List<ProjectNumber> ProjectNumber { get; set; }
+		[ForeignKey("ProjectTypeId")]
+		public virtual List<ProjectNumber> ProjectNumbers { get; set; }
 	}
 }

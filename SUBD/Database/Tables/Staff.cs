@@ -18,5 +18,8 @@ namespace Database.Tables
 		public int StaffRate { get; set; }
 		public virtual Post Post { get; set; }
 		public virtual ProjectNumber ProjectNumber { get; set; }
+
+		[ForeignKey("StaffId")]
+		public virtual List<Purpose> Purposes { get; set; }
 	}
 }
