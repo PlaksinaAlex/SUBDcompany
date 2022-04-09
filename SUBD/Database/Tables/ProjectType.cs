@@ -13,6 +13,7 @@ namespace Database.Tables
 		public int Id { get; set; }
 		[Required]
 		public string ProjectTypeName { get; set; }
+
 		public int ProjectTypeRate { get; set; }
 
 		[ForeignKey("ProjectTyperId")]
