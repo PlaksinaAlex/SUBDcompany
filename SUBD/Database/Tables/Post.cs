@@ -15,7 +15,7 @@ namespace Database.Tables
 		[Required]
 		public string PostName { get; set; }
 		[Required]
-		public int PostRate { get; set; }
+		public decimal PostRate { get; set; }
 	
 		[ForeignKey("PostId")]
 		public virtual List<Staff> Staffs { get; set; }

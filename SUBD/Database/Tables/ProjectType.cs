@@ -14,7 +14,7 @@ namespace Database.Tables
 		[Required]
 		public string ProjectTypeName { get; set; }
 
-		public int ProjectTypeRate { get; set; }
+		public decimal ProjectTypeRate { get; set; }
 
 		[ForeignKey("ProjectTypeId")]
 		public virtual List<ProjectNumber> ProjectNumbers { get; set; }

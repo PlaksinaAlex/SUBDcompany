@@ -15,7 +15,7 @@ namespace Database.Tables
 		public int ProjectNumberId { get; set; }
 		[Required]
 		public string StaffName { get; set; }
-		public int StaffRate { get; set; }
+		public decimal StaffRate { get; set; }
 		public virtual Post Post { get; set; }
 		public virtual ProjectNumber ProjectNumber { get; set; }
 
