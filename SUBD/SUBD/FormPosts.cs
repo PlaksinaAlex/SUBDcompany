@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Database.Tables;
 using Database.Implements;
-using Unity;
+
 
 namespace SUBD
 {
@@ -135,7 +135,7 @@ namespace SUBD
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBoxPostRate.Text))
+			if (string.IsNullOrEmpty(textBoxIdDelete.Text))
 			{
 				MessageBox.Show("Введите корректный Id", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
