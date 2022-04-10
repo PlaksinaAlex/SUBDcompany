@@ -14,7 +14,7 @@ namespace Database.Tables
 		public int Id { get; set; }
 		public int StaffId { get; set; }
 		[Required]
-		public DataType workday { get; set; }
+		public DateTime workday { get; set; }
 		public int HoursCount { get; set; }
 		public virtual Staff Staff { get; set; }
 

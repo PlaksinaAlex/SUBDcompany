@@ -15,11 +15,11 @@ namespace Database.Implements
             return context.Purposes
                 .ToList();
         }
-        public List<Purpose> GetFilteredList(int count)
+        public List<Purpose> GetFilteredList(int id)
         {
             using var context = new CompanyDatabase();
             return context.Purposes
-            .Where(rec => rec.HoursCount == count)
+            .Where(rec => rec.Staff.Id == id)
             .ToList();
         }
 

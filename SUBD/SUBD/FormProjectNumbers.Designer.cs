@@ -43,7 +43,7 @@ namespace SUBD
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.textBoxPrNumberNameUpdate = new System.Windows.Forms.TextBox();
-			this.textBoxIdPrNumberUpdate = new System.Windows.Forms.TextBox();
+			this.textBoxIdPrTypeUpdate = new System.Windows.Forms.TextBox();
 			this.buttonDelete = new System.Windows.Forms.Button();
 			this.textBoxIdDelete = new System.Windows.Forms.TextBox();
 			this.Id = new System.Windows.Forms.Label();
@@ -96,6 +96,7 @@ namespace SUBD
 			this.buttonRefresh.TabIndex = 4;
 			this.buttonRefresh.Text = "Получить список проектов";
 			this.buttonRefresh.UseVisualStyleBackColor = true;
+			this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
 			// 
 			// groupBox1
 			// 
@@ -138,6 +139,7 @@ namespace SUBD
 			this.buttonUpdate.TabIndex = 6;
 			this.buttonUpdate.Text = "Обновить значение";
 			this.buttonUpdate.UseVisualStyleBackColor = true;
+			this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
 			// 
 			// groupBox2
 			// 
@@ -146,7 +148,7 @@ namespace SUBD
 			this.groupBox2.Controls.Add(this.label4);
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this.textBoxPrNumberNameUpdate);
-			this.groupBox2.Controls.Add(this.textBoxIdPrNumberUpdate);
+			this.groupBox2.Controls.Add(this.textBoxIdPrTypeUpdate);
 			this.groupBox2.Location = new System.Drawing.Point(507, 51);
 			this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox2.Name = "groupBox2";
@@ -198,13 +200,13 @@ namespace SUBD
 			this.textBoxPrNumberNameUpdate.Size = new System.Drawing.Size(37, 23);
 			this.textBoxPrNumberNameUpdate.TabIndex = 1;
 			// 
-			// textBoxIdPrNumberUpdate
+			// textBoxIdPrTypeUpdate
 			// 
-			this.textBoxIdPrNumberUpdate.Location = new System.Drawing.Point(136, 108);
-			this.textBoxIdPrNumberUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBoxIdPrNumberUpdate.Name = "textBoxIdPrNumberUpdate";
-			this.textBoxIdPrNumberUpdate.Size = new System.Drawing.Size(37, 23);
-			this.textBoxIdPrNumberUpdate.TabIndex = 2;
+			this.textBoxIdPrTypeUpdate.Location = new System.Drawing.Point(136, 108);
+			this.textBoxIdPrTypeUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.textBoxIdPrTypeUpdate.Name = "textBoxIdPrTypeUpdate";
+			this.textBoxIdPrTypeUpdate.Size = new System.Drawing.Size(37, 23);
+			this.textBoxIdPrTypeUpdate.TabIndex = 2;
 			// 
 			// buttonDelete
 			// 
@@ -215,6 +217,7 @@ namespace SUBD
 			this.buttonDelete.TabIndex = 7;
 			this.buttonDelete.Text = "Удалить";
 			this.buttonDelete.UseVisualStyleBackColor = true;
+			this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
 			// 
 			// textBoxIdDelete
 			// 
@@ -316,7 +319,8 @@ namespace SUBD
 			this.Controls.Add(this.buttonAdd);
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "FormProjectNumbers";
-			this.Text = "FormClasses";
+			this.Text = "Проекты";
+			this.Load += new System.EventHandler(this.FormProjectNumbers_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox2.ResumeLayout(false);
@@ -345,7 +349,7 @@ namespace SUBD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxPrNumberNameUpdate;
-        private System.Windows.Forms.TextBox textBoxIdPrNumberUpdate;
+        private System.Windows.Forms.TextBox textBoxIdPrTypeUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.TextBox textBoxIdDelete;
         private System.Windows.Forms.Label Id;
