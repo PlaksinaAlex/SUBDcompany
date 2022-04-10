@@ -10,12 +10,41 @@ using System.Windows.Forms;
 
 namespace SUBD
 {
-	public partial class Form1 : Form
+	public partial class FormMain : Form
 	{
-		public Form1()
+		public FormMain()
 		{
 			InitializeComponent();
 		}
 
+		private void buttonPurpose_Click(object sender, EventArgs e)
+		{
+			FormPurposes form = new FormPurposes();
+			form.ShowDialog();
+		}
+
+		private void buttonStaff_Click(object sender, EventArgs e)
+		{
+			FormStaffs form = new FormStaffs();
+			form.ShowDialog();
+		}
+
+		private void buttonPost_Click(object sender, EventArgs e)
+		{
+			FormPosts form = new FormPosts();
+			form.ShowDialog();
+		}
+
+		private void buttonProjectNumber_Click(object sender, EventArgs e)
+		{
+			FormProjectNumbers form = new FormProjectNumbers();
+			form.ShowDialog();
+		}
+
+		private void buttonProjectType_Click(object sender, EventArgs e)
+		{
+			FormProjectType form = new FormProjectType();
+			form.ShowDialog();
+		}
 	}
 }
