@@ -23,25 +23,32 @@ namespace SUBD
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBoxPrNumberName.Text))
+			if (textBoxPrNumberName.Text == "")
 			{
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (!int.TryParse(textBoxIdPrType.Text, out int temp))
+			if (textBoxPrTypeName.Text == "")
 			{
 				MessageBox.Show("Введите корректный тип проекта", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
 				return;
 			}
-			int num = Convert.ToInt32(textBoxIdPrType.Text);
-			textBoxIdPrType.Text = "";
+			string typename = textBoxPrTypeName.Text;
+			textBoxPrTypeName.Text = "";
 			string name = textBoxPrNumberName.Text;
 			textBoxPrNumberName.Text = "";
 			try
 			{
-				projectNumberStorage.Insert(new ProjectNumber() { ProjectNumberName = name, ProjectType = new ProjectType() { Id = num } });
+				projectNumberStorage.Insert(new ProjectNumber()
+				{
+					ProjectNumberName = name,
+					ProjectType = new ProjectType()
+					{
+						ProjectTypeName = typename
+					}
+				});
 			}
 			catch
 			{
@@ -55,8 +62,14 @@ namespace SUBD
 			try
 			{
 				List<ProjectNumber> list;
-				if (string.IsNullOrEmpty(textBoxFiltered.Text))
-				{ 
+				if (textBoxFiltered.Text != "")
+				{
+					if (textBoxFiltered.Text != "")
+					{
+						MessageBox.Show("Введите правильно тип проекта!", "Ошибка", MessageBoxButtons.OK,
+			  MessageBoxIcon.Error);
+						return;
+					}
 					list = projectNumberStorage.GetFilteredList(textBoxFiltered.Text);
 				}
 				else
@@ -67,8 +80,9 @@ namespace SUBD
 				{
 					dataGridView.DataSource = list;
 					dataGridView.Columns[0].Visible = false;
-					dataGridView.Columns[1].AutoSizeMode =
-					DataGridViewAutoSizeColumnMode.Fill;
+					dataGridView.Columns[1].Visible = false;
+					dataGridView.Columns[2].Visible = false;
+					dataGridView.Columns[6].Visible = false;
 				}
 			}
 			catch (Exception ex)
@@ -96,20 +110,20 @@ namespace SUBD
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (!int.TryParse(textBoxIdPrTypeUpdate.Text, out temp))
+			if (string.IsNullOrEmpty(textBoxPrTypeUpdate.Text))
 			{
 				MessageBox.Show("Введите корректный тип проекта", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			int id = Convert.ToInt32(textBoxIdUpdate.Text);
-			int num = Convert.ToInt32(textBoxIdPrTypeUpdate.Text);
+			string typename = textBoxPrTypeUpdate.Text;
 			string name = textBoxPrNumberNameUpdate.Text;
 			textBoxIdUpdate.Text = "";
 			textBoxPrNumberNameUpdate.Text = "";
-			textBoxIdPrTypeUpdate.Text = "";
+			textBoxPrTypeUpdate.Text = "";
 			try
 			{
-				projectNumberStorage.Update(new ProjectNumber() { Id = id, ProjectNumberName = name, ProjectType = new ProjectType() { Id = num } });
+				projectNumberStorage.Update(new ProjectNumber() { Id = id, ProjectNumberName = name, ProjectType = new ProjectType() { ProjectTypeName = typename } });
 			}
 			catch
 			{
@@ -129,7 +143,10 @@ namespace SUBD
 			textBoxIdDelete.Text = "";
 			try
 			{
-				projectNumberStorage.Delete(new ProjectNumber() { Id = id });
+				projectNumberStorage.Delete(new ProjectNumber() 
+				{
+					Id = id
+				});
 			}
 			catch
 			{

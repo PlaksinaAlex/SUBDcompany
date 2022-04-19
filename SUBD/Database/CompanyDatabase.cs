@@ -18,12 +18,12 @@ namespace Database
         {
            // optionsBuilder.LogTo(_logStream.WriteLine, LogLevel.Information);
 
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=local;Username=postgres;Password=qwer");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=alex;Username=user;Password=makorra97");
         }
         public override void Dispose()
         {
             base.Dispose();
-            //_logStream.Dispose();
+           // _logStream.Dispose();
         }
     }
 }

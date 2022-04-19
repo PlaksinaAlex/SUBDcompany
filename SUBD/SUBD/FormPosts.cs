@@ -27,7 +27,7 @@ namespace SUBD
 			try
 			{
 				List<Post> list;
-				if (string.IsNullOrEmpty(textBoxFiltered.Text))
+				if (textBoxFiltered.Text != "")
 				{
 					if (!int.TryParse(textBoxFiltered.Text, out int temp))
 					{
@@ -45,8 +45,8 @@ namespace SUBD
 				{
 					dataGridView.DataSource = list;
 					dataGridView.Columns[0].Visible = false;
-					dataGridView.Columns[1].AutoSizeMode =
-					DataGridViewAutoSizeColumnMode.Fill;
+					dataGridView.Columns[1].Visible = false;
+					dataGridView.Columns[2].Visible = false;
 				}
 			}
 			catch (Exception ex)
@@ -118,14 +118,15 @@ namespace SUBD
 				});
 				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
 			   MessageBoxButtons.OK, MessageBoxIcon.Information);
-				DialogResult = DialogResult.OK;
-				Close();
+				//DialogResult = DialogResult.OK;
+				//Close();
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
 			   MessageBoxIcon.Error);
 			}
+			LoadData();
 		}
 
 		private void FormPosts_Load(object sender, EventArgs e)

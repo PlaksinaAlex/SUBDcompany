@@ -15,12 +15,12 @@ namespace Database.Implements
             return context.ProjectNumbers
                 .ToList();
         }
-        public List<ProjectNumber> GetFilteredList(string name)
+        public List<ProjectNumber> GetFilteredList(string typename)
         {
 
             using var context = new CompanyDatabase();
             return context.ProjectNumbers
-            .Where(rec => rec.ProjectNumberName == name)
+            .Where(rec => rec.ProjectType.ProjectTypeName == typename)
             .ToList();
         }
 

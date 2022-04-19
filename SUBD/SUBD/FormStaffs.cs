@@ -25,7 +25,7 @@ namespace SUBD
 			try
 			{
 				List<Staff> list;
-				if (string.IsNullOrEmpty(textBoxFiltered.Text))
+				if (textBoxFiltered.Text != "")
 				{
 					if (!int.TryParse(textBoxFiltered.Text, out int temp))
 					{
@@ -43,8 +43,12 @@ namespace SUBD
 				{
 					dataGridView.DataSource = list;
 					dataGridView.Columns[0].Visible = false;
-					dataGridView.Columns[1].AutoSizeMode =
-					DataGridViewAutoSizeColumnMode.Fill;
+					dataGridView.Columns[1].Visible = false;
+					dataGridView.Columns[2].Visible = false;
+					dataGridView.Columns[3].Visible = false;
+					dataGridView.Columns[4].Visible = false;
+					dataGridView.Columns[10].Visible = false;
+					dataGridView.Columns[11].Visible = false;
 				}
 			}
 			catch (Exception ex)
@@ -56,7 +60,7 @@ namespace SUBD
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBoxStaffName.Text))
+			if (textBoxStaffName.Text == "")
 			{
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -110,7 +114,7 @@ namespace SUBD
 					   MessageBoxIcon.Error);
 				return;
 			}
-			if (string.IsNullOrEmpty(textBoxStaffName.Text))
+			if (textBoxStaffName.Text == "")
 			{
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;

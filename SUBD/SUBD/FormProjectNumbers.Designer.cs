@@ -31,10 +31,10 @@ namespace SUBD
         {
 			this.buttonAdd = new System.Windows.Forms.Button();
 			this.textBoxPrNumberName = new System.Windows.Forms.TextBox();
-			this.textBoxIdPrType = new System.Windows.Forms.TextBox();
+			this.textBoxPrTypeName = new System.Windows.Forms.TextBox();
 			this.buttonRefresh = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.labelPTID = new System.Windows.Forms.Label();
+			this.labelPT = new System.Windows.Forms.Label();
 			this.labelPNName = new System.Windows.Forms.Label();
 			this.buttonUpdate = new System.Windows.Forms.Button();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,17 +43,17 @@ namespace SUBD
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.textBoxPrNumberNameUpdate = new System.Windows.Forms.TextBox();
-			this.textBoxIdPrTypeUpdate = new System.Windows.Forms.TextBox();
+			this.textBoxPrTypeUpdate = new System.Windows.Forms.TextBox();
 			this.buttonDelete = new System.Windows.Forms.Button();
 			this.textBoxIdDelete = new System.Windows.Forms.TextBox();
 			this.Id = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBoxFiltered = new System.Windows.Forms.TextBox();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.idPrType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBoxFiltered = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -73,19 +73,19 @@ namespace SUBD
 			// 
 			// textBoxPrNumberName
 			// 
-			this.textBoxPrNumberName.Location = new System.Drawing.Point(122, 33);
+			this.textBoxPrNumberName.Location = new System.Drawing.Point(13, 33);
 			this.textBoxPrNumberName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxPrNumberName.Name = "textBoxPrNumberName";
-			this.textBoxPrNumberName.Size = new System.Drawing.Size(37, 23);
+			this.textBoxPrNumberName.Size = new System.Drawing.Size(130, 23);
 			this.textBoxPrNumberName.TabIndex = 1;
 			// 
-			// textBoxIdPrType
+			// textBoxPrTypeName
 			// 
-			this.textBoxIdPrType.Location = new System.Drawing.Point(122, 74);
-			this.textBoxIdPrType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBoxIdPrType.Name = "textBoxIdPrType";
-			this.textBoxIdPrType.Size = new System.Drawing.Size(37, 23);
-			this.textBoxIdPrType.TabIndex = 2;
+			this.textBoxPrTypeName.Location = new System.Drawing.Point(13, 100);
+			this.textBoxPrTypeName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.textBoxPrTypeName.Name = "textBoxPrTypeName";
+			this.textBoxPrTypeName.Size = new System.Drawing.Size(121, 23);
+			this.textBoxPrTypeName.TabIndex = 2;
 			// 
 			// buttonRefresh
 			// 
@@ -100,31 +100,31 @@ namespace SUBD
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.labelPTID);
+			this.groupBox1.Controls.Add(this.labelPT);
 			this.groupBox1.Controls.Add(this.labelPNName);
 			this.groupBox1.Controls.Add(this.textBoxPrNumberName);
-			this.groupBox1.Controls.Add(this.textBoxIdPrType);
+			this.groupBox1.Controls.Add(this.textBoxPrTypeName);
 			this.groupBox1.Location = new System.Drawing.Point(6, 51);
 			this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.groupBox1.Size = new System.Drawing.Size(164, 105);
+			this.groupBox1.Size = new System.Drawing.Size(164, 140);
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
 			// 
-			// labelPTID
+			// labelPT
 			// 
-			this.labelPTID.AutoSize = true;
-			this.labelPTID.Location = new System.Drawing.Point(0, 74);
-			this.labelPTID.Name = "labelPTID";
-			this.labelPTID.Size = new System.Drawing.Size(92, 15);
-			this.labelPTID.TabIndex = 4;
-			this.labelPTID.Text = "Id типа проекта";
+			this.labelPT.AutoSize = true;
+			this.labelPT.Location = new System.Drawing.Point(40, 83);
+			this.labelPT.Name = "labelPT";
+			this.labelPT.Size = new System.Drawing.Size(74, 15);
+			this.labelPT.TabIndex = 4;
+			this.labelPT.Text = "Тип проекта";
 			// 
 			// labelPNName
 			// 
 			this.labelPNName.AutoSize = true;
-			this.labelPNName.Location = new System.Drawing.Point(0, 35);
+			this.labelPNName.Location = new System.Drawing.Point(28, 16);
 			this.labelPNName.Name = "labelPNName";
 			this.labelPNName.Size = new System.Drawing.Size(106, 15);
 			this.labelPNName.TabIndex = 3;
@@ -148,18 +148,18 @@ namespace SUBD
 			this.groupBox2.Controls.Add(this.label4);
 			this.groupBox2.Controls.Add(this.label5);
 			this.groupBox2.Controls.Add(this.textBoxPrNumberNameUpdate);
-			this.groupBox2.Controls.Add(this.textBoxIdPrTypeUpdate);
+			this.groupBox2.Controls.Add(this.textBoxPrTypeUpdate);
 			this.groupBox2.Location = new System.Drawing.Point(507, 51);
 			this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.groupBox2.Size = new System.Drawing.Size(189, 140);
+			this.groupBox2.Size = new System.Drawing.Size(189, 160);
 			this.groupBox2.TabIndex = 6;
 			this.groupBox2.TabStop = false;
 			// 
 			// textBoxIdUpdate
 			// 
-			this.textBoxIdUpdate.Location = new System.Drawing.Point(136, 24);
+			this.textBoxIdUpdate.Location = new System.Drawing.Point(41, 21);
 			this.textBoxIdUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxIdUpdate.Name = "textBoxIdUpdate";
 			this.textBoxIdUpdate.Size = new System.Drawing.Size(37, 23);
@@ -168,7 +168,7 @@ namespace SUBD
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(5, 29);
+			this.label6.Location = new System.Drawing.Point(6, 24);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(17, 15);
 			this.label6.TabIndex = 5;
@@ -177,16 +177,16 @@ namespace SUBD
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(5, 108);
+			this.label4.Location = new System.Drawing.Point(57, 108);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(92, 15);
+			this.label4.Size = new System.Drawing.Size(74, 15);
 			this.label4.TabIndex = 4;
-			this.label4.Text = "Id типа проекта";
+			this.label4.Text = "Тип проекта";
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(5, 67);
+			this.label5.Location = new System.Drawing.Point(41, 49);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(106, 15);
 			this.label5.TabIndex = 3;
@@ -194,19 +194,19 @@ namespace SUBD
 			// 
 			// textBoxPrNumberNameUpdate
 			// 
-			this.textBoxPrNumberNameUpdate.Location = new System.Drawing.Point(136, 64);
+			this.textBoxPrNumberNameUpdate.Location = new System.Drawing.Point(30, 75);
 			this.textBoxPrNumberNameUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.textBoxPrNumberNameUpdate.Name = "textBoxPrNumberNameUpdate";
-			this.textBoxPrNumberNameUpdate.Size = new System.Drawing.Size(37, 23);
+			this.textBoxPrNumberNameUpdate.Size = new System.Drawing.Size(119, 23);
 			this.textBoxPrNumberNameUpdate.TabIndex = 1;
 			// 
-			// textBoxIdPrTypeUpdate
+			// textBoxPrTypeUpdate
 			// 
-			this.textBoxIdPrTypeUpdate.Location = new System.Drawing.Point(136, 108);
-			this.textBoxIdPrTypeUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBoxIdPrTypeUpdate.Name = "textBoxIdPrTypeUpdate";
-			this.textBoxIdPrTypeUpdate.Size = new System.Drawing.Size(37, 23);
-			this.textBoxIdPrTypeUpdate.TabIndex = 2;
+			this.textBoxPrTypeUpdate.Location = new System.Drawing.Point(30, 133);
+			this.textBoxPrTypeUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.textBoxPrTypeUpdate.Name = "textBoxPrTypeUpdate";
+			this.textBoxPrTypeUpdate.Size = new System.Drawing.Size(119, 23);
+			this.textBoxPrTypeUpdate.TabIndex = 2;
 			// 
 			// buttonDelete
 			// 
@@ -263,24 +263,6 @@ namespace SUBD
 			this.dataGridView.Size = new System.Drawing.Size(312, 273);
 			this.dataGridView.TabIndex = 11;
 			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label1.Location = new System.Drawing.Point(4, 277);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(161, 13);
-			this.label1.TabIndex = 19;
-			this.label1.Text = "Фильтрация по типу проекту";
-			// 
-			// textBoxFiltered
-			// 
-			this.textBoxFiltered.Location = new System.Drawing.Point(34, 301);
-			this.textBoxFiltered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBoxFiltered.Name = "textBoxFiltered";
-			this.textBoxFiltered.Size = new System.Drawing.Size(110, 23);
-			this.textBoxFiltered.TabIndex = 18;
-			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -301,6 +283,24 @@ namespace SUBD
 			this.idPrType.HeaderText = "Id типа проекта";
 			this.idPrType.MinimumWidth = 6;
 			this.idPrType.Name = "idPrType";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.label1.Location = new System.Drawing.Point(4, 277);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(161, 13);
+			this.label1.TabIndex = 19;
+			this.label1.Text = "Фильтрация по типу проекту";
+			// 
+			// textBoxFiltered
+			// 
+			this.textBoxFiltered.Location = new System.Drawing.Point(34, 301);
+			this.textBoxFiltered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.textBoxFiltered.Name = "textBoxFiltered";
+			this.textBoxFiltered.Size = new System.Drawing.Size(110, 23);
+			this.textBoxFiltered.TabIndex = 18;
 			// 
 			// FormProjectNumbers
 			// 
@@ -337,10 +337,10 @@ namespace SUBD
 
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.TextBox textBoxPrNumberName;
-        private System.Windows.Forms.TextBox textBoxIdPrType;
+        private System.Windows.Forms.TextBox textBoxPrTypeName;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label labelPTID;
+        private System.Windows.Forms.Label labelPT;
         private System.Windows.Forms.Label labelPNName;
         private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -349,7 +349,7 @@ namespace SUBD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBoxPrNumberNameUpdate;
-        private System.Windows.Forms.TextBox textBoxIdPrTypeUpdate;
+        private System.Windows.Forms.TextBox textBoxPrTypeUpdate;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.TextBox textBoxIdDelete;
         private System.Windows.Forms.Label Id;

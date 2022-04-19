@@ -26,7 +26,7 @@ namespace SUBD
 			try
 			{
 				List<ProjectType> list;
-				if (string.IsNullOrEmpty(textBoxFiltered.Text))
+				if (textBoxFiltered.Text != "")
 				{
 					if (!int.TryParse(textBoxFiltered.Text, out int temp))
 					{
@@ -44,8 +44,8 @@ namespace SUBD
 				{
 					dataGridView.DataSource = list;
 					dataGridView.Columns[0].Visible = false;
-					dataGridView.Columns[1].AutoSizeMode =
-					DataGridViewAutoSizeColumnMode.Fill;
+					dataGridView.Columns[1].Visible = false;
+					dataGridView.Columns[2].Visible = false;
 				}
 			}
 			catch (Exception ex)
@@ -68,7 +68,7 @@ namespace SUBD
 
 		private void buttonDelete_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBoxIdDelete.Text))
+			if (!int.TryParse(textBoxIdDelete.Text, out int temp))
 			{
 				MessageBox.Show("Введите корректный Id", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
@@ -88,15 +88,15 @@ namespace SUBD
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBoxProjectTypeName.Text))
+			if (textBoxProjectTypeName.Text == "")
 			{
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 
-			if (string.IsNullOrEmpty(textBoxProjectTypeRate.Text))
+			if (!int.TryParse(textBoxProjectTypeRate.Text, out int temp))
 			{
-				MessageBox.Show("Введите ставку по должности!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Введите надбавку!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			try
@@ -108,27 +108,31 @@ namespace SUBD
 				});
 				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
 			   MessageBoxButtons.OK, MessageBoxIcon.Information);
-				DialogResult = DialogResult.OK;
-				Close();
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
 			   MessageBoxIcon.Error);
 			}
+			LoadData();
 		}
 
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
-			if (string.IsNullOrEmpty(textBoxProjectTypeNameUpdate.Text))
+			if (textBoxProjectTypeNameUpdate.Text == "")
 			{
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
 				return;
 			}
-			if (string.IsNullOrEmpty(textBoxIdUpdate.Text))
+			if (!int.TryParse(textBoxIdUpdate.Text, out int temp))
 			{
 				MessageBox.Show("Введите корректный Id", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			if (!int.TryParse(textBoxProjectTypeRateUpdate.Text, out temp))
+			{
+				MessageBox.Show("Введите надбавку!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			int id = Convert.ToInt32(textBoxIdUpdate.Text);
@@ -139,7 +143,10 @@ namespace SUBD
 			textBoxProjectTypeRateUpdate.Text = "";
 			try
 			{
-				projectTypeStorage.Update(new ProjectType() { Id = id, ProjectTypeName = name, ProjectTypeRate = rate });
+				projectTypeStorage.Update(new ProjectType() 
+				{
+					Id = id, ProjectTypeName = name, ProjectTypeRate = rate 
+				});
 			}
 			catch
 			{
