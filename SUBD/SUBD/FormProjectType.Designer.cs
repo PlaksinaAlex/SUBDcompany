@@ -49,11 +49,11 @@ namespace SUBD
 			this.Id = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.dataGridView = new System.Windows.Forms.DataGridView();
-			this.textBoxFiltered = new System.Windows.Forms.TextBox();
-			this.label1 = new System.Windows.Forms.Label();
 			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.projectTypename = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.projectTypetrate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.textBoxFiltered = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
@@ -263,24 +263,6 @@ namespace SUBD
 			this.dataGridView.Size = new System.Drawing.Size(312, 273);
 			this.dataGridView.TabIndex = 11;
 			// 
-			// textBoxFiltered
-			// 
-			this.textBoxFiltered.Location = new System.Drawing.Point(46, 293);
-			this.textBoxFiltered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.textBoxFiltered.Name = "textBoxFiltered";
-			this.textBoxFiltered.Size = new System.Drawing.Size(110, 23);
-			this.textBoxFiltered.TabIndex = 12;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label1.Location = new System.Drawing.Point(39, 267);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(141, 13);
-			this.label1.TabIndex = 13;
-			this.label1.Text = "Фильтрация по надбавке";
-			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -303,6 +285,24 @@ namespace SUBD
 			this.projectTypetrate.MinimumWidth = 6;
 			this.projectTypetrate.Name = "projectTypetrate";
 			// 
+			// textBoxFiltered
+			// 
+			this.textBoxFiltered.Location = new System.Drawing.Point(46, 293);
+			this.textBoxFiltered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.textBoxFiltered.Name = "textBoxFiltered";
+			this.textBoxFiltered.Size = new System.Drawing.Size(110, 23);
+			this.textBoxFiltered.TabIndex = 12;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.label1.Location = new System.Drawing.Point(39, 267);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(141, 13);
+			this.label1.TabIndex = 13;
+			this.label1.Text = "Фильтрация по надбавке";
+			// 
 			// FormProjectType
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -320,7 +320,7 @@ namespace SUBD
 			this.Controls.Add(this.buttonAdd);
 			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "FormProjectType";
-			this.Text = "Должности";
+			this.Text = "Типы проектов";
 			this.Load += new System.EventHandler(this.FormProjectType_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();

@@ -12,9 +12,7 @@ namespace Database.Tables
 	public class ProjectNumber
 	{
 		public int Id { get; set; }
-
 		public int ProjectTypeId { get; set; }
-
 		[Required]
 		public string ProjectNumberName { get; set; }	
 

@@ -25,7 +25,7 @@ namespace SUBD
 			try
 			{
 				List<Purpose> list;
-				if (string.IsNullOrEmpty(textBoxFiltered.Text))
+				if (textBoxFiltered.Text != "")
 				{
 					if (!int.TryParse(textBoxFiltered.Text, out int temp))
 					{
@@ -43,8 +43,11 @@ namespace SUBD
 				{
 					dataGridView.DataSource = list;
 					dataGridView.Columns[0].Visible = false;
-					dataGridView.Columns[1].AutoSizeMode =
-					DataGridViewAutoSizeColumnMode.Fill;
+					dataGridView.Columns[1].Visible = false;
+					dataGridView.Columns[2].Visible = false;
+					dataGridView.Columns[3].Visible = false;
+					dataGridView.Columns[8].Visible = false;
+
 				}
 			}
 			catch (Exception ex)
@@ -71,11 +74,21 @@ namespace SUBD
 			int count = Convert.ToInt32(textBoxHoursCount.Text);
 			textBoxHoursCount.Text = "";
 			int num = Convert.ToInt32(textBoxIDStaff.Text);
-			textBoxHoursCount.Text = "";
+			textBoxIDStaff.Text = "";
 			DateTime date = dateTimePickerWorkDay.Value;
 			try
 			{
-				purposeStorage.Insert(new Purpose() { HoursCount = count, workday = date, Staff = new Staff() { Id = num } });
+				purposeStorage.Insert(new Purpose() 
+				{
+					HoursCount = count, 
+					workday = date, 
+					Staff = new Staff() 
+					{
+						Id = num 
+					}
+				});
+				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
+	   MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch
 			{
@@ -103,13 +116,13 @@ namespace SUBD
 					   MessageBoxIcon.Error);
 				return;
 			}
-			if (!int.TryParse(textBoxHoursCount.Text, out temp))
+			if (!int.TryParse(textBoxHoursCountUpdate.Text, out temp))
 			{
 				MessageBox.Show("Введите число часов!", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
 				return;
 			}
-			if (!int.TryParse(textBoxIDStaff.Text, out temp))
+			if (!int.TryParse(textBoxIDStaffUpdate.Text, out temp))
 			{
 				MessageBox.Show("Введите правильно айди сотрудника!", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
@@ -117,14 +130,23 @@ namespace SUBD
 			}
 			int id = Convert.ToInt32(textBoxIdUpdate.Text);
 			textBoxIdUpdate.Text = "";
-			int count = Convert.ToInt32(textBoxHoursCount.Text);
-			textBoxHoursCount.Text = "";
-			int num = Convert.ToInt32(textBoxIDStaff.Text);
-			textBoxHoursCount.Text = "";
+			int count = Convert.ToInt32(textBoxHoursCountUpdate.Text);
+			textBoxHoursCountUpdate.Text = "";
+			int num = Convert.ToInt32(textBoxIDStaffUpdate.Text);
+			textBoxIDStaffUpdate.Text = "";
 			DateTime date = dateTimePickerWorkDay.Value;
 			try
 			{
-				purposeStorage.Insert(new Purpose() { Id = id, HoursCount = count, workday = date, Staff = new Staff() { Id = num } });
+				purposeStorage.Update(new Purpose() 
+				{
+					Id = id, 
+					HoursCount = count, 
+					workday = date, 
+					Staff = new Staff() 
+					{
+						Id = num 
+					}
+				});
 			}
 			catch
 			{

@@ -87,7 +87,11 @@ namespace SUBD
 			textBoxPostRateUpdate.Text = "";
 			try
 			{
-				postStorage.Update(new Post() { Id = id, PostName = name, PostRate = rate });
+				postStorage.Update(new Post() 
+				{
+					Id = id, 
+					PostName = name, 
+					PostRate = rate });
 			}
 			catch
 			{
@@ -118,14 +122,14 @@ namespace SUBD
 				});
 				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
 			   MessageBoxButtons.OK, MessageBoxIcon.Information);
-				//DialogResult = DialogResult.OK;
-				//Close();
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
 			   MessageBoxIcon.Error);
 			}
+			textBoxPostName.Text = "";
+			textBoxPostRate.Text = "";
 			LoadData();
 		}
 

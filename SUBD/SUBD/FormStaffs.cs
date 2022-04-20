@@ -87,7 +87,21 @@ namespace SUBD
 			textBoxIDProject.Text = "";
 			try
 			{
-				staffStorage.Insert(new Staff() { StaffName = name, StaffRate = rate, Post = new Post() { Id = post }, ProjectNumber = new ProjectNumber() { Id = num } });
+				staffStorage.Insert(new Staff() 
+				{
+					StaffName = name, 
+					StaffRate = rate, 
+					Post = new Post() 
+					{
+						Id = post 
+					}, 
+					ProjectNumber = new ProjectNumber() 
+					{
+						Id = num 
+					} 
+				});
+				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
+	   MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch
 			{
@@ -114,18 +128,18 @@ namespace SUBD
 					   MessageBoxIcon.Error);
 				return;
 			}
-			if (textBoxStaffName.Text == "")
+			if (textBoxStaffNameUpdate.Text == "")
 			{
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (!int.TryParse(textBoxIDPost.Text, out temp))
+			if (!int.TryParse(textBoxIDPostUpdate.Text, out temp))
 			{
 				MessageBox.Show("Введите айди должности!", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
 				return;
 			}
-			if (!int.TryParse(textBoxIDProject.Text, out temp))
+			if (!int.TryParse(textBoxIDProjectUpdate.Text, out temp))
 			{
 				MessageBox.Show("Введите правильно айди проекта!", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
@@ -134,20 +148,33 @@ namespace SUBD
 			int id = Convert.ToInt32(textBoxIdUpdate.Text);
 			textBoxIdUpdate.Text = "";
 			string name = textBoxStaffName.Text;
-			textBoxStaffName.Text = "";
+			textBoxStaffNameUpdate.Text = "";
 			int rate = Convert.ToInt32(textBoxStaffRate.Text);
-			textBoxStaffRate.Text = "";
+			textBoxStaffRateUpdate.Text = "";
 			int post = Convert.ToInt32(textBoxIDPost.Text);
-			textBoxIDPost.Text = "";
+			textBoxIDPostUpdate.Text = "";
 			int num = Convert.ToInt32(textBoxIDProject.Text);
-			textBoxIDProject.Text = "";
+			textBoxIDProjectUpdate.Text = "";
 			try
 			{
-				staffStorage.Insert(new Staff() { Id = id, StaffName = name, StaffRate = rate, Post = new Post() { Id = post }, ProjectNumber = new ProjectNumber() { Id = num } });
+				staffStorage.Insert(new Staff() 
+				{
+					Id = id, 
+					StaffName = name, 
+					StaffRate = rate, 
+					Post = new Post() 
+					{
+						Id = post 
+					}, 
+					ProjectNumber = new ProjectNumber() 
+					{
+						Id = num
+					}
+				});
 			}
 			catch
 			{
-				MessageBox.Show("Ошибка при добавлении", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show("Ошибка при обновлении", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			LoadData();
 		}

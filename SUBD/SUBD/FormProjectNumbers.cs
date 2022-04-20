@@ -29,13 +29,13 @@ namespace SUBD
 				return;
 			}
 
-			if (textBoxPrTypeName.Text == "")
+			if (!int.TryParse(textBoxPrTypeName.Text, out int temp))
 			{
 				MessageBox.Show("Введите корректный тип проекта", "Ошибка", MessageBoxButtons.OK,
 					   MessageBoxIcon.Error);
 				return;
 			}
-			string typename = textBoxPrTypeName.Text;
+			int type = Convert.ToInt32(textBoxPrTypeName.Text);
 			textBoxPrTypeName.Text = "";
 			string name = textBoxPrNumberName.Text;
 			textBoxPrNumberName.Text = "";
@@ -46,9 +46,11 @@ namespace SUBD
 					ProjectNumberName = name,
 					ProjectType = new ProjectType()
 					{
-						ProjectTypeName = typename
+						Id = type
 					}
 				});
+				MessageBox.Show("Сохранение прошло успешно", "Сообщение",
+	   MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch
 			{
@@ -64,13 +66,13 @@ namespace SUBD
 				List<ProjectNumber> list;
 				if (textBoxFiltered.Text != "")
 				{
-					if (textBoxFiltered.Text != "")
+					if (!int.TryParse(textBoxFiltered.Text, out int temp))
 					{
 						MessageBox.Show("Введите правильно тип проекта!", "Ошибка", MessageBoxButtons.OK,
 			  MessageBoxIcon.Error);
 						return;
 					}
-					list = projectNumberStorage.GetFilteredList(textBoxFiltered.Text);
+					list = projectNumberStorage.GetFilteredList(Convert.ToInt32(textBoxFiltered.Text));
 				}
 				else
 				{
@@ -110,20 +112,28 @@ namespace SUBD
 				MessageBox.Show("Заполните название", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
-			if (string.IsNullOrEmpty(textBoxPrTypeUpdate.Text))
+			if (!int.TryParse(textBoxPrTypeUpdate.Text, out temp))
 			{
 				MessageBox.Show("Введите корректный тип проекта", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 				return;
 			}
 			int id = Convert.ToInt32(textBoxIdUpdate.Text);
-			string typename = textBoxPrTypeUpdate.Text;
+			int type = Convert.ToInt32(textBoxPrTypeUpdate.Text);
 			string name = textBoxPrNumberNameUpdate.Text;
 			textBoxIdUpdate.Text = "";
 			textBoxPrNumberNameUpdate.Text = "";
 			textBoxPrTypeUpdate.Text = "";
 			try
 			{
-				projectNumberStorage.Update(new ProjectNumber() { Id = id, ProjectNumberName = name, ProjectType = new ProjectType() { ProjectTypeName = typename } });
+				projectNumberStorage.Update(new ProjectNumber() 
+				{
+					Id = id, 
+					ProjectNumberName = name, 
+					ProjectType = new ProjectType() 
+					{
+						Id = type
+					}
+				});
 			}
 			catch
 			{

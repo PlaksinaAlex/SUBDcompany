@@ -114,6 +114,8 @@ namespace SUBD
 				MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
 			   MessageBoxIcon.Error);
 			}
+			textBoxProjectTypeName.Text = "";
+			textBoxProjectTypeRate.Text = "";
 			LoadData();
 		}
 
